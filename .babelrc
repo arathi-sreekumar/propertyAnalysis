@@ -3,13 +3,23 @@
     "react",
     ["env", {
       "targets": {
-        "browsers": "last 2 versions"
+        "browsers": [
+          ">0.25%",
+          "not ie 11",
+          "not op_mini all"
+        ]
       },
       "loose": true,
       "modules": false
     }]
   ],
   "plugins": [
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "babel-runtime"
+    }],
     "react-hot-loader/babel",
     "babel-plugin-syntax-dynamic-import",
     "babel-plugin-dynamic-import-webpack",

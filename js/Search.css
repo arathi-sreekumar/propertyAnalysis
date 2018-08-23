@@ -1,0 +1,14 @@
+.search {
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.search input {
+	margin: 0 10px;
+	width: auto;
+}
+
+.search .separator-text {
+	font-family: Trebuchet MS;
+}

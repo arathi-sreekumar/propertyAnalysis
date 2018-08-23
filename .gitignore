@@ -61,6 +61,7 @@ typings/
 .next
 
 public/bundle.js
+public/*.hot-update.*
 .DS_Store
 public/*bundle*
 *.map
