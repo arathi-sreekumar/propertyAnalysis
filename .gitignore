@@ -60,11 +60,8 @@ typings/
 # next.js build output
 .next
 
-public/bundle.js
 .DS_Store
-public/*bundle*
 *.map
-*.bundle.js
 _site/
 .sass-cache/
 *.iml
