@@ -25,29 +25,3 @@ exports[`AreaOverviewDetails renders correctly 1`] = `
   </li>
 </ul>
 `;
-
-exports[`AreaPriceChart renders correctly 1`] = `
-<ul>
-  <li>
-    Area: 
-     BN10
-  </li>
-  <li>
-    Country: 
-    England
-  </li>
-  <li>
-    County: 
-    East Sussex
-  </li>
-  <li>
-    PostCode: 
-    BN10
-  </li>
-  <li>
-     Average property price: £
-    295212
-     
-  </li>
-</ul>
-`;
