@@ -1,15 +1,23 @@
+// @flow
+
 import React from 'react';
 // import Chart from 'react-d3-core';
 import { LineChart } from 'react-easy-chart';
 import { arrayOf, shape, string, number } from 'prop-types';
 
+type FlowChartData = {
+  data: ?({ x: string, y: number }[])
+};
+
 class AreaPriceChart extends React.Component {
-  constructor(props) {
+  constructor(props: FlowChartData) {
     super(props);
     this.state = {
       data: props.data
     };
   }
+
+  state: FlowChartData;
 
   render() {
     const width = 700;

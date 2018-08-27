@@ -1,19 +1,30 @@
+// @flow
+
 import React from 'react';
 import AreaPropertyOverview from './components/AreaPropertyOverview/AreaPropertyOverview';
 import './Search.css';
 
 class Search extends React.Component {
-	constructor(props) {
+	constructor(props: mixed) {
 		super(props);
 		this.state = {
 			search: { area: 'bn10' },
-			area: null,
-			postcode: null
+			area: '',
+			postcode: ''
 		};
-		this.getSearchResult = this.getSearchResult.bind(this);
-		this.handleAreaChange = this.handleAreaChange.bind(this);
-		this.handlePostcodeChange = this.handlePostcodeChange.bind(this);
+		(this: any).getSearchResult = this.getSearchResult.bind(this);
+		(this: any).handleAreaChange = this.handleAreaChange.bind(this);
+		(this: any).handlePostcodeChange = this.handlePostcodeChange.bind(this);
 	}
+
+	state = {
+		search: {
+			area: '',
+			postcode: ''
+		},
+		area: '',
+		postcode: ''
+	};
 
 	getSearchResult() {
 		const search = {};
@@ -26,11 +37,11 @@ class Search extends React.Component {
 		this.setState({ search });
 	}
 
-	handleAreaChange(event) {
+	handleAreaChange(event: SyntheticKeyboardEvent & { target: HTMLInputElement }) {
 		this.setState({ area: event.target.value });
 	}
 
-	handlePostcodeChange(event) {
+	handlePostcodeChange(event: SyntheticKeyboardEvent & { target: HTMLInputElement }) {
 		this.setState({ postcode: event.target.value });
 	}
 

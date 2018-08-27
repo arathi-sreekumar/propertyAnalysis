@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import { number, shape } from 'prop-types';
@@ -22,7 +24,7 @@ MapWithAMarker.propTypes = {
 	zoom: number.isRequired
 };
 
-const GoogleMapWithMarker = props => {
+const GoogleMapWithMarker = (props: { center: {}, zoom: number }) => {
 	const { center, zoom } = props;
 	const apiKey = getApiKey();
 	const googleMapURL = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`;

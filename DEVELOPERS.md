@@ -15,10 +15,15 @@ yarn global add prettier
 yarn global add eslint
 ```
 
+To get flow working:
+`yarn global add flow-typed`
+
+To run flow use `yarn run flow`
+
 ## Building the project
 
 -   On your project directory run `yarn` to install all dependencies.
--   Run `yarn build` for production ready build or `yarn build:dev for development ready code.
+-   Run `yarn build` for production ready build or `yarn build:dev` for development ready code.
 -   On a separate terminal run `yarn watch` for linting and building your code on the fly while you make changes.
 -   Run `yarn dev` to fire up a dev server from your project directory.
 -   Access your project at `http://localhost:8080/`

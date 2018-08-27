@@ -1,8 +1,26 @@
+// @flow
+
 import React from 'react';
 import { string, shape } from 'prop-types';
 
-const AreaOverviewDetails = props => {
-	const { country, county, postcode, street, town } = props.area;
+type FlowAreaData = {
+	area: {
+		area_name?: string,
+		country?: string,
+		county?: string,
+		postcode?: string,
+		street?: string,
+		town?: string,
+		zed_index?: string
+	}
+};
+
+const AreaOverviewDetails = (props: FlowAreaData) => {
+	const county = props.area.county;
+	const postcode = props.area.postcode;
+	const street = props.area.street;
+	const town = props.area.town;
+	const country = props.area.country;
 	const zedIndex = props.area.zed_index;
 	const areaName = props.area.area_name;
 

@@ -1,3 +1,5 @@
+// @flow
+
 import { getPropertyDetailsByAreaUrl, getPropertyDetailsByPostCodeUrl } from './requestUrls';
 
 // function checkStatus(response) {
@@ -9,7 +11,7 @@ import { getPropertyDetailsByAreaUrl, getPropertyDetailsByPostCodeUrl } from './
 // 	throw error;
 // }
 
-export function fetchPropertyOverview(props) {
+export function fetchPropertyOverview(props: { area?: string, postcode?: string }) {
 	const options = props || {};
 	const { area, postcode } = options;
 	let url;

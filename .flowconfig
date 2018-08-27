@@ -1,0 +1,11 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/styled-components/*
+<PROJECT_ROOT>/node_modules/postcss/*
+<PROJECT_ROOT>/node_modules/radium/*
+
+[include]
+
+[libs]
+styled-components
+
+[options]
