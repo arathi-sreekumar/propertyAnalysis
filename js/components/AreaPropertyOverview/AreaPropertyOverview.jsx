@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { fetchPropertyOverview } from './helpers/apiHelper';
 import { extractZedIndexChartData, extractAreaDetails } from './helpers/dataHelper';
 import AreaOverviewDetails from './AreaOverviewDetails';
@@ -31,36 +32,26 @@ type FlowState = {
 		longitude?: number
 	},
 	isLoaded: boolean,
-	search: {
-		searchTerm?: string
-	}
-};
-
-type FlowProps = {
-	search: { searchTerm?: string }
+	searchTerm: ?string
 };
 
 class AreaPropertyOverview extends Component {
-	constructor(props: FlowProps) {
-		super(props);
-		this.state = {
-			error: null,
-			isLoaded: false,
-			result: null,
-			search: props.search
-		};
-	}
-
 	state: FlowState;
+
+	state = {
+		error: null,
+		isLoaded: false,
+		result: null,
+		searchTerm: ''
+	};
 
 	componentDidMount() {
 		this.fetchData();
 	}
 
-	componentDidUpdate(prevProps: FlowProps) {
-		console.log(prevProps, this.props, 'In areaproperty did update fn');
-		if (this.props.search.searchTerm !== prevProps.search.searchTerm) {
-			this.setSearchState(this.props.search);
+	componentDidUpdate(prevProps: { searchTerm: ?string }) {
+		if (this.props.searchTerm !== prevProps.searchTerm) {
+			this.setSearchState(this.props.searchTerm);
 
 			this.fetchData();
 		}
@@ -72,16 +63,22 @@ class AreaPropertyOverview extends Component {
 		});
 	}
 
-	setSearchState(search: {}) {
-		this.setState({ search });
+	setSearchState(searchTerm: ?string) {
+		if (searchTerm) {
+			this.setState({ searchTerm });
+		}
 	}
 
+	props: {
+		searchTerm: ?string
+	};
+
 	async fetchData() {
-		if (!this.state.search || !this.state.search.searchTerm) {
+		if (!this.props.searchTerm) {
 			return;
 		}
 
-		const response = await fetchPropertyOverview(this.state.search);
+		const response = await fetchPropertyOverview(this.props.searchTerm);
 
 		await this.setStateAsync({
 			isLoaded: true,
@@ -107,7 +104,7 @@ class AreaPropertyOverview extends Component {
 			const mapZoom = 11;
 
 			return (
-				<div>
+				<div className="search-result">
 					<AreaOverviewDetails area={areaDetails} />
 					<AreaPriceChart data={chartData} />
 					<GoogleMapWithMarker center={mapCenter} zoom={mapZoom} />
@@ -119,4 +116,10 @@ class AreaPropertyOverview extends Component {
 	}
 }
 
-export default AreaPropertyOverview;
+const mapStateToProps = state => ({
+	searchTerm: state.searchTerm
+});
+
+export default connect(mapStateToProps)(AreaPropertyOverview);
+
+export const Unwrapped = AreaPropertyOverview;

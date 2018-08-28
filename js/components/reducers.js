@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 import searchReducer from './Search/duck/reducers';
 
 const rootReducer = combineReducers({
-	search: searchReducer
+	searchTerm: searchReducer
 });
 
 export default rootReducer;

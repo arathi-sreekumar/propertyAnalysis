@@ -8,39 +8,27 @@ exports[`AreaPropertyOverview renders correctly 1`] = `
 
 exports[`AreaPropertyOverview search receiving empty data renders correctly 1`] = `
 <AreaPropertyOverview
-  search={
-    Object {
-      "searchTerm": "bn10",
-    }
-  }
+  search="bn10"
 >
   <div>
-    No search results found
+    Loading...
   </div>
 </AreaPropertyOverview>
 `;
 
 exports[`AreaPropertyOverview search receiving empty data renders correctly 2`] = `
 <AreaPropertyOverview
-  search={
-    Object {
-      "searchTerm": "bn10",
-    }
-  }
+  search="bn10"
 >
   <div>
-    No search results found
+    Loading...
   </div>
 </AreaPropertyOverview>
 `;
 
 exports[`AreaPropertyOverview search receiving empty data renders correctly 3`] = `
 <AreaPropertyOverview
-  search={
-    Object {
-      "searchTerm": "bn10",
-    }
-  }
+  search="bn10"
 >
   <div>
     Loading...
@@ -50,13 +38,11 @@ exports[`AreaPropertyOverview search receiving empty data renders correctly 3`] 
 
 exports[`AreaPropertyOverview search receiving valid data renders correctly 1`] = `
 <AreaPropertyOverview
-  search={
-    Object {
-      "searchTerm": "bn10",
-    }
-  }
+  searchTerm="bn10"
 >
-  <div>
+  <div
+    className="search-result"
+  >
     <AreaOverviewDetails
       area={
         Object {

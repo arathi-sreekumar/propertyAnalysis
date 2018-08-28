@@ -11,9 +11,8 @@ import { getPropertyDetailsByAreaUrl } from './requestUrls';
 // 	throw error;
 // }
 
-export function fetchPropertyOverview(props: { searchTerm?: string }) {
-	const options = props || {};
-	const { searchTerm } = options;
+export function fetchPropertyOverview(props: ?string) {
+	const searchTerm = props;
 	let url;
 
 	if (searchTerm) {
