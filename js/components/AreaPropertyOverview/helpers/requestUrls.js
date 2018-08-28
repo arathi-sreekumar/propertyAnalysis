@@ -9,3 +9,4 @@ export const getPropertyDetailsByAreaUrl = (area: string) =>
 
 export const getPropertyDetailsByPostCodeUrl = (postcode: string) =>
 	`https://CORS-Anywhere.HerokuApp.com/https://api.zoopla.co.uk/api/v1/zed_index.js?postcode=${postcode}&output_type=outcode&api_key=${apiKey}`;
+

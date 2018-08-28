@@ -6,11 +6,53 @@ exports[`AreaPropertyOverview renders correctly 1`] = `
 </div>
 `;
 
-exports[`AreaPropertyOverview search eceiving valid data renders correctly 1`] = `
+exports[`AreaPropertyOverview search receiving empty data renders correctly 1`] = `
 <AreaPropertyOverview
   search={
     Object {
-      "area": "bn10",
+      "searchTerm": "bn10",
+    }
+  }
+>
+  <div>
+    No search results found
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview search receiving empty data renders correctly 2`] = `
+<AreaPropertyOverview
+  search={
+    Object {
+      "searchTerm": "bn10",
+    }
+  }
+>
+  <div>
+    No search results found
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview search receiving empty data renders correctly 3`] = `
+<AreaPropertyOverview
+  search={
+    Object {
+      "searchTerm": "bn10",
+    }
+  }
+>
+  <div>
+    Loading...
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview search receiving valid data renders correctly 1`] = `
+<AreaPropertyOverview
+  search={
+    Object {
+      "searchTerm": "bn10",
     }
   }
 >
@@ -349,48 +391,6 @@ exports[`AreaPropertyOverview search eceiving valid data renders correctly 1`] =
         />
       </withScriptjs(withGoogleMap(Component))>
     </GoogleMapWithMarker>
-  </div>
-</AreaPropertyOverview>
-`;
-
-exports[`AreaPropertyOverview search receiving empty data renders correctly 1`] = `
-<AreaPropertyOverview
-  search={
-    Object {
-      "area": "bn10",
-    }
-  }
->
-  <div>
-    No search results found
-  </div>
-</AreaPropertyOverview>
-`;
-
-exports[`AreaPropertyOverview search receiving empty data renders correctly 2`] = `
-<AreaPropertyOverview
-  search={
-    Object {
-      "area": "bn10",
-    }
-  }
->
-  <div>
-    No search results found
-  </div>
-</AreaPropertyOverview>
-`;
-
-exports[`AreaPropertyOverview search receiving empty data renders correctly 3`] = `
-<AreaPropertyOverview
-  search={
-    Object {
-      "area": "bn10",
-    }
-  }
->
-  <div>
-    Loading...
   </div>
 </AreaPropertyOverview>
 `;

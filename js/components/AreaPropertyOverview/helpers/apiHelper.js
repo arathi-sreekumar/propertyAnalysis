@@ -1,6 +1,6 @@
 // @flow
 
-import { getPropertyDetailsByAreaUrl, getPropertyDetailsByPostCodeUrl } from './requestUrls';
+import { getPropertyDetailsByAreaUrl } from './requestUrls';
 
 // function checkStatus(response) {
 // 	if (response.status >= 200 && response.status < 300) {
@@ -11,15 +11,13 @@ import { getPropertyDetailsByAreaUrl, getPropertyDetailsByPostCodeUrl } from './
 // 	throw error;
 // }
 
-export function fetchPropertyOverview(props: { area?: string, postcode?: string }) {
+export function fetchPropertyOverview(props: { searchTerm?: string }) {
 	const options = props || {};
-	const { area, postcode } = options;
+	const { searchTerm } = options;
 	let url;
 
-	if (area) {
-		url = getPropertyDetailsByAreaUrl(area);
-	} else if (postcode) {
-		url = getPropertyDetailsByPostCodeUrl(postcode);
+	if (searchTerm) {
+		url = getPropertyDetailsByAreaUrl(searchTerm);
 	} else {
 		const error = new Error('Need to provide area or postcode');
 		throw error;

@@ -36,20 +36,20 @@ describe('AreaPropertyOverview', () => {
 		const component = shallow(<AreaPropertyOverview />);
 		expect(component).toMatchSnapshot();
 	});
-	describe('search eceiving valid data', () => {
+	describe('search receiving valid data', () => {
 		beforeEach(() => {
 			fetchPropertyOverview.mockImplementation(() => Promise.resolve({ ZED_INDEX_RESPONSE }));
 		});
 
 		test('fetchPropertyOverview is called', async () => {
-			const search = { area: 'bn10' };
+			const search = { searchTerm: 'bn10' };
 			const wrapper = mount(<AreaPropertyOverview search={search} />);
 			await wrapper.instance().componentDidMount();
 			expect(fetchPropertyOverview).toBeCalled();
 		});
 
 		test('renders correctly', async () => {
-			const search = { area: 'bn10' };
+			const search = { searchTerm: 'bn10' };
 			const wrapper = mount(<AreaPropertyOverview search={search} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
@@ -62,7 +62,7 @@ describe('AreaPropertyOverview', () => {
 		});
 
 		test('renders correctly', async () => {
-			const search = { area: 'bn10' };
+			const search = { searchTerm: 'bn10' };
 			const wrapper = mount(<AreaPropertyOverview search={search} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
@@ -75,7 +75,7 @@ describe('AreaPropertyOverview', () => {
 		});
 
 		test('renders correctly', async () => {
-			const search = { area: 'bn10' };
+			const search = { searchTerm: 'bn10' };
 			const wrapper = mount(<AreaPropertyOverview search={search} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
@@ -88,7 +88,7 @@ describe('AreaPropertyOverview', () => {
 		});
 
 		test('renders correctly', async () => {
-			const search = { area: 'bn10' };
+			const search = { searchTerm: 'bn10' };
 			const wrapper = mount(<AreaPropertyOverview search={search} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();

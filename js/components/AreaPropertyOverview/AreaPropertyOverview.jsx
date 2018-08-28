@@ -5,7 +5,7 @@ import { fetchPropertyOverview } from './helpers/apiHelper';
 import { extractZedIndexChartData, extractAreaDetails } from './helpers/dataHelper';
 import AreaOverviewDetails from './AreaOverviewDetails';
 import AreaPriceChart from './AreaPriceChart';
-import GoogleMapWithMarker from '../common/MapWithAMarker';
+import GoogleMapWithMarker from '../common/GoogleMaps/MapWithAMarker';
 
 type FlowState = {
 	error: ?{
@@ -32,13 +32,12 @@ type FlowState = {
 	},
 	isLoaded: boolean,
 	search: {
-		area?: string,
-		postcode?: string
+		searchTerm?: string
 	}
 };
 
 type FlowProps = {
-	search: { area?: string, postcode?: string }
+	search: { searchTerm?: string }
 };
 
 class AreaPropertyOverview extends Component {
@@ -59,11 +58,10 @@ class AreaPropertyOverview extends Component {
 	}
 
 	componentDidUpdate(prevProps: FlowProps) {
-		if (
-			this.props.search.area !== prevProps.search.area ||
-			this.props.search.postcode !== prevProps.search.postcode
-		) {
+		console.log(prevProps, this.props, 'In areaproperty did update fn');
+		if (this.props.search.searchTerm !== prevProps.search.searchTerm) {
 			this.setSearchState(this.props.search);
+
 			this.fetchData();
 		}
 	}
@@ -75,39 +73,15 @@ class AreaPropertyOverview extends Component {
 	}
 
 	setSearchState(search: {}) {
-		this.setState(search);
+		this.setState({ search });
 	}
 
 	async fetchData() {
-		if (!this.state.search || (!this.state.search.area && !this.state.search.postcode)) {
+		if (!this.state.search || !this.state.search.searchTerm) {
 			return;
 		}
+
 		const response = await fetchPropertyOverview(this.state.search);
-		// const response = {
-		// 	area_url: 'https://www.zoopla.co.uk/home-values/bn10',
-		// 	street: '',
-		// 	zed_index_1year: 296335,
-		// 	town: '',
-		// 	zed_index: '295212',
-		// 	zed_index_2year: 281450,
-		// 	zed_index_3year: 260725,
-		// 	latitude: 50.7983845,
-		// 	postcode: 'BN10',
-		// 	zed_index_6month: 287006,
-		// 	country: 'England',
-		// 	longitude: 0.001313,
-		// 	area_name: ' BN10',
-		// 	zed_index_3month: 292878,
-		// 	zed_index_4year: 245716,
-		// 	county: 'East Sussex',
-		// 	zed_index_5year: 221783,
-		// 	bounding_box: {
-		// 		longitude_min: '-0.025241',
-		// 		latitude_min: '50.785809',
-		// 		longitude_max: '0.027867',
-		// 		latitude_max: '50.81096'
-		// 	}
-		// };
 
 		await this.setStateAsync({
 			isLoaded: true,

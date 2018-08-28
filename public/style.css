@@ -11,3 +11,9 @@ body {
 	background-color: blue;
 	background-image: url('./img/property.png');
 }
+.app {
+	border: 1px solid grey;
+	padding: 20px;
+	margin: auto;
+	width: 100%;
+}

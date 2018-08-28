@@ -3,7 +3,7 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import { number, shape } from 'prop-types';
-import { getApiKey } from './constants/googleMapsApiKey';
+import { getApiKey } from '../constants/googleMapsApiKey';
 
 const MapWithAMarker = withScriptjs(
 	withGoogleMap(props => {
