@@ -1,6 +1,5 @@
 {
     "scripts": {
-        "api": "node ratingsAPI.js",
         "format": "prettier --list-different --single-quote --print-width=120 webpack.config.js \"js/**/*.{js,jsx}\"",
         "less": "lessc **/*.less **/*.css",
         "lint": "eslint **/*.{js,jsx} --quiet",
@@ -8,7 +7,6 @@
         "build": "webpack -p",
         "build:dev": "webpack -d",
         "dev": "webpack-dev-server",
-        "start": "NODE_ENV=server node server.js",
         "test": "NODE_ENV=test jest",
         "test:update": "NODE_ENV=test jest -u",
         "test:coverage": "NODE_ENV=test jest --coverage"
@@ -18,12 +16,8 @@
             "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
             "\\.(css|less)$": "identity-obj-proxy"
         },
-        "snapshotSerializers": [
-            "jest-serializer-enzyme"
-        ],
-        "setupFiles": [
-            "./setupJest.js"
-        ]
+        "snapshotSerializers": ["jest-serializer-enzyme"],
+        "setupFiles": ["./setupJest.js"]
     },
     "dependencies": {
         "axios": "0.16.1",
