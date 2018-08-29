@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { fetchPropertyOverview } from './helpers/apiHelper';
-import AreaPropertyOverview, { Unwrapped as UnwrappedAreaPropertyOverview } from './AreaPropertyOverview';
+import AreaPropertyOverview from './AreaPropertyOverview';
 
 jest.mock('./helpers/apiHelper');
 
@@ -33,7 +33,7 @@ const ZED_INDEX_RESPONSE = {
 
 describe('AreaPropertyOverview', () => {
 	it('renders correctly', () => {
-		const component = shallow(<UnwrappedAreaPropertyOverview />);
+		const component = shallow(<AreaPropertyOverview />);
 		expect(component).toMatchSnapshot();
 	});
 	describe('search receiving valid data', () => {
@@ -43,14 +43,14 @@ describe('AreaPropertyOverview', () => {
 
 		test('fetchPropertyOverview is called', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<UnwrappedAreaPropertyOverview searchTerm={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(fetchPropertyOverview).toBeCalled();
 		});
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<UnwrappedAreaPropertyOverview searchTerm={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
@@ -63,7 +63,7 @@ describe('AreaPropertyOverview', () => {
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<UnwrappedAreaPropertyOverview search={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
@@ -76,7 +76,7 @@ describe('AreaPropertyOverview', () => {
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<UnwrappedAreaPropertyOverview search={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
@@ -89,7 +89,7 @@ describe('AreaPropertyOverview', () => {
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<UnwrappedAreaPropertyOverview search={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});

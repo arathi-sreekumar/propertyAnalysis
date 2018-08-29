@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { fetchPropertyOverview } from './helpers/apiHelper';
 import { extractZedIndexChartData, extractAreaDetails } from './helpers/dataHelper';
 import AreaOverviewDetails from './AreaOverviewDetails';
@@ -116,10 +115,4 @@ class AreaPropertyOverview extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	searchTerm: state.searchTerm
-});
-
-export default connect(mapStateToProps)(AreaPropertyOverview);
-
-export const Unwrapped = AreaPropertyOverview;
+export default AreaPropertyOverview;

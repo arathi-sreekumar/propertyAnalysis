@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import Search from './Search/Search';
 import AreaPropertyOverview from './AreaPropertyOverview/AreaPropertyOverview';
 
-const SearchResults = (props: {}) => (
-	<div>
-		<h1 className="title">Property Information</h1>
-		<Search {...props} />
-		<h2 className="subtitle">Search Results</h2>
+const SearchResults = (props: { search: string }) => {
+	const search = props.search || '';
+	return (
 		<div>
-			<code>{JSON.stringify(props)}</code>
+			<h1 className="title">Property Information</h1>
+			<Search {...props} />
+			<h2 className="subtitle">Search Results</h2>
+			<AreaPropertyOverview searchTerm={search} />
 		</div>
-		<AreaPropertyOverview {...props} />
-	</div>
-);
+	);
+};
 
 const mapStateToProps = state => ({
 	searchTerm: state.searchTerm
