@@ -10,9 +10,6 @@ const SearchResults = (props: {}) => (
 		<h1 className="title">Property Information</h1>
 		<Search {...props} />
 		<h2 className="subtitle">Search Results</h2>
-		<div>
-			<code>{JSON.stringify(props)}</code>
-		</div>
 		<AreaPropertyOverview {...props} />
 	</div>
 );
