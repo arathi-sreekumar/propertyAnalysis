@@ -1,44 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AreaPropertyOverview renders correctly 1`] = `
-<div>
-  Loading...
-</div>
+exports[`AreaPropertyOverview renders correctly for empty search 1`] = `
+<AreaPropertyOverview
+  searchTerm=""
+>
+  <div>
+    You need to search for a postcode!
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview renders correctly for search "bn10" 1`] = `
+<AreaPropertyOverview
+  searchTerm="bn10"
+>
+  <div>
+    Loading...
+  </div>
+</AreaPropertyOverview>
 `;
 
 exports[`AreaPropertyOverview search receiving empty data renders correctly 1`] = `
 <AreaPropertyOverview
-  search="bn10"
+  searchTerm="bn10"
 >
   <div>
-    Loading...
+    No search results found
   </div>
 </AreaPropertyOverview>
 `;
 
-exports[`AreaPropertyOverview search receiving empty data renders correctly 2`] = `
-<AreaPropertyOverview
-  search="bn10"
->
-  <div>
-    Loading...
-  </div>
-</AreaPropertyOverview>
-`;
-
-exports[`AreaPropertyOverview search receiving empty data renders correctly 3`] = `
-<AreaPropertyOverview
-  search="bn10"
->
-  <div>
-    Loading...
-  </div>
-</AreaPropertyOverview>
-`;
-
-exports[`AreaPropertyOverview search receiving valid data renders correctly 1`] = `
+exports[`AreaPropertyOverview search receiving null as data renders correctly 1`] = `
 <AreaPropertyOverview
   searchTerm="bn10"
+>
+  <div>
+    No search results found
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview search updates data correctly updates correctly 1`] = `
+<AreaPropertyOverview
+  searchTerm="bn11"
 >
   <div
     className="search-result"
@@ -377,6 +381,17 @@ exports[`AreaPropertyOverview search receiving valid data renders correctly 1`] 
         />
       </withScriptjs(withGoogleMap(Component))>
     </GoogleMapWithMarker>
+  </div>
+</AreaPropertyOverview>
+`;
+
+exports[`AreaPropertyOverview search with failed api call renders correctly 1`] = `
+<AreaPropertyOverview
+  searchTerm="peacehaven"
+>
+  <div>
+    Please enter a valid postcode! We could not find results for 
+    peacehaven
   </div>
 </AreaPropertyOverview>
 `;

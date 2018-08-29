@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { fetchPropertyOverview } from './helpers/apiHelper';
 import { extractZedIndexChartData, extractAreaDetails } from './helpers/dataHelper';
 import AreaOverviewDetails from './AreaOverviewDetails';
@@ -78,19 +77,26 @@ class AreaPropertyOverview extends Component {
 			return;
 		}
 
-		const response = await fetchPropertyOverview(this.props.searchTerm);
-
-		await this.setStateAsync({
-			isLoaded: true,
-			result: response
-		});
+		try {
+			const response = await fetchPropertyOverview(this.props.searchTerm);
+			await this.setStateAsync({
+				isLoaded: true,
+				result: response
+			});
+		} catch (error) {
+			this.setState({ error });
+		}
 	}
 
 	render() {
 		const { error, isLoaded, result } = this.state;
 
+		if (!this.props.searchTerm) {
+			return <div>You need to search for a postcode!</div>;
+		}
+
 		if (error) {
-			return <div>Error: {error.message}</div>;
+			return <div>Please enter a valid postcode! We could not find results for {this.props.searchTerm}</div>;
 		}
 
 		if (!isLoaded) {
@@ -116,10 +122,4 @@ class AreaPropertyOverview extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	searchTerm: state.searchTerm
-});
-
-export default connect(mapStateToProps)(AreaPropertyOverview);
-
-export const Unwrapped = AreaPropertyOverview;
+export default AreaPropertyOverview;

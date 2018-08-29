@@ -15,7 +15,12 @@ const App = () => (
 		<Provider store={store}>
 			<Switch>
 				<Route exact path="/" component={Landing} />
-				<Route path="/searchResults" component={props => <SearchResults {...props} />} />
+				<Route
+					path="/searchResults/:searchTerm?"
+					component={(props: { match: Match }) => (
+						<SearchResults search={props.match.params.searchTerm || ''} {...props} />
+					)}
+				/>
 				<Route component={FourOhFour} />
 			</Switch>
 		</Provider>
