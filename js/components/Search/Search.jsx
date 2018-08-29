@@ -15,7 +15,7 @@ class Search extends React.Component {
 
 	goToSearchResults = (event: SyntheticEvent) => {
 		event.preventDefault();
-		this.props.history.push(`/${this.props.searchTerm}`);
+		this.props.history.push(`/searchResults/${this.props.searchTerm}`);
 	};
 
 	render() {

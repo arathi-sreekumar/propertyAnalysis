@@ -16,7 +16,7 @@ const App = () => (
 			<Switch>
 				<Route exact path="/" component={Landing} />
 				<Route
-					path="/searchResults/:searchTerm"
+					path="/searchResults/:searchTerm?"
 					component={(props: { match: Match }) => (
 						<SearchResults search={props.match.params.searchTerm || ''} {...props} />
 					)}

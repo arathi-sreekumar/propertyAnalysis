@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { fetchPropertyOverview } from './helpers/apiHelper';
 import AreaPropertyOverview from './AreaPropertyOverview';
 
@@ -32,9 +32,15 @@ const ZED_INDEX_RESPONSE = {
 };
 
 describe('AreaPropertyOverview', () => {
-	it('renders correctly', () => {
-		const component = shallow(<AreaPropertyOverview />);
-		expect(component).toMatchSnapshot();
+	describe('renders', () => {
+		it('correctly for empty search', () => {
+			const component = mount(<AreaPropertyOverview searchTerm="" />);
+			expect(component).toMatchSnapshot();
+		});
+		it('correctly for search "bn10"', () => {
+			const component = mount(<AreaPropertyOverview searchTerm="bn10" />);
+			expect(component).toMatchSnapshot();
+		});
 	});
 	describe('search receiving valid data', () => {
 		beforeEach(() => {
@@ -47,11 +53,21 @@ describe('AreaPropertyOverview', () => {
 			await wrapper.instance().componentDidMount();
 			expect(fetchPropertyOverview).toBeCalled();
 		});
+	});
 
-		test('renders correctly', async () => {
+	describe('search updates data correctly', async () => {
+		beforeEach(() => {
+			fetchPropertyOverview.mockImplementation(() => Promise.resolve({ ZED_INDEX_RESPONSE }));
+		});
+		test('updates correctly', async () => {
 			const searchTerm = 'bn10';
+			const newSearchTerm = 'bn11';
 			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
+			expect(fetchPropertyOverview).toBeCalledWith(searchTerm);
+			wrapper.setProps({ searchTerm: newSearchTerm });
+			await wrapper.instance().componentDidMount();
+			expect(fetchPropertyOverview).toBeCalledWith(newSearchTerm);
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
@@ -63,35 +79,39 @@ describe('AreaPropertyOverview', () => {
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
 
-	describe('search receiving empty data', () => {
+	describe('search receiving null as data', () => {
 		beforeEach(() => {
 			fetchPropertyOverview.mockImplementation(() => Promise.resolve(null));
 		});
 
 		test('renders correctly', async () => {
 			const searchTerm = 'bn10';
-			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
+			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
 
-	describe('search receiving empty data', () => {
+	describe('search with failed api call', () => {
 		beforeEach(() => {
-			fetchPropertyOverview.mockImplementation(() => Promise.reject({ error: 'Failed!' }));
+			fetchPropertyOverview.mockImplementation(() => {
+				throw new Error('Invalid search');
+			});
 		});
 
 		test('renders correctly', async () => {
-			const searchTerm = 'bn10';
-			const wrapper = mount(<AreaPropertyOverview search={searchTerm} />);
+			const searchTerm = 'peacehaven';
+			const wrapper = mount(<AreaPropertyOverview searchTerm={searchTerm} />);
 			await wrapper.instance().componentDidMount();
 			expect(wrapper).toMatchSnapshot();
 		});
 	});
+
+	// To do error handling
 });

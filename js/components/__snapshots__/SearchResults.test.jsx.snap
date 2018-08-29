@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults renders correctly for empty search 1`] = `
+<div>
+  <h1
+    class="title"
+  >
+    Property Information
+  </h1>
+  <form
+    class="search field has-addons"
+  >
+    <div
+      class="control is-expanded"
+    >
+      <input
+        class="input is-primary"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="control"
+    >
+      <button
+        class="button is-primary"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+  <h2
+    class="subtitle"
+  >
+    Search Results
+  </h2>
+  <div>
+    You need to search for a postcode!
+  </div>
+</div>
+`;
+
+exports[`SearchResults renders correctly for given search = bn10 1`] = `
+<div>
+  <h1
+    class="title"
+  >
+    Property Information
+  </h1>
+  <form
+    class="search field has-addons"
+  >
+    <div
+      class="control is-expanded"
+    >
+      <input
+        class="input is-primary"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="control"
+    >
+      <button
+        class="button is-primary"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+  <h2
+    class="subtitle"
+  >
+    Search Results
+  </h2>
+  <div>
+    Loading...
+  </div>
+</div>
+`;

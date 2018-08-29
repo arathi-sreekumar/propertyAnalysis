@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search renders correctly for a given search word "bn10" 1`] = `
+<form
+  class="search field has-addons"
+>
+  <div
+    class="control is-expanded"
+  >
+    <input
+      class="input is-primary"
+      placeholder="Search"
+      type="text"
+      value="bn10"
+    />
+  </div>
+  <div
+    class="control"
+  >
+    <button
+      class="button is-primary"
+      type="submit"
+    >
+      Search
+    </button>
+  </div>
+</form>
+`;
+
+exports[`Search renders correctly when search word is empty 1`] = `
+<form
+  class="search field has-addons"
+>
+  <div
+    class="control is-expanded"
+  >
+    <input
+      class="input is-primary"
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="control"
+  >
+    <button
+      class="button is-primary"
+      type="submit"
+    >
+      Search
+    </button>
+  </div>
+</form>
+`;
