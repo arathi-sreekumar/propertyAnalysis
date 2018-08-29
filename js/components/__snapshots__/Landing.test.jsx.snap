@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Landing renders correctly 1`] = `
+<div>
+  <h1
+    class="title"
+  >
+    Property Information
+  </h1>
+  <form
+    class="search field has-addons"
+  >
+    <div
+      class="control is-expanded"
+    >
+      <input
+        class="input is-primary"
+        placeholder="Search"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="control"
+    >
+      <button
+        class="button is-primary"
+        type="submit"
+      >
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+`;

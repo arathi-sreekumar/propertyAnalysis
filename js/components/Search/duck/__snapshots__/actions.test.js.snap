@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setSearchTerm 1`] = `
+Object {
+  "payload": "New York",
+  "type": "SET_SEARCH_TERM",
+}
+`;
