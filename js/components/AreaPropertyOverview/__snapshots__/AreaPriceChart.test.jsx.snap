@@ -2,6 +2,11 @@
 
 exports[`AreaPriceChart renders correctly 1`] = `
 <div>
+  <h2
+    className="subtitle"
+  >
+    Average property price over last 5 years
+  </h2>
   <LineChart
     axes={true}
     axisLabels={

@@ -15,6 +15,9 @@ type FlowAreaData = {
 	}
 };
 
+/*
+  * AreaOverviewDetails component displays basic details regarding an area
+*/
 const AreaOverviewDetails = (props: FlowAreaData) => {
 	const county = props.area.county;
 	const postcode = props.area.postcode;

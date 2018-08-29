@@ -21,6 +21,17 @@ type FlowAreaDetails = {
 	zed_index?: string
 };
 
+type FlowBoundingBox = {
+	longitude_min: string,
+	latitude_min: string,
+	longitude_max: string,
+	latitude_max: string
+};
+
+/*
+  * Function that extracts Zed Index data (Average property pricing info) for charts
+  * @params data - an object that contains the data returned from the zoopla api
+*/
 export const extractZedIndexChartData = (data?: FlowChartData) => {
 	if (!data) {
 		return [];
@@ -45,6 +56,10 @@ export const extractZedIndexChartData = (data?: FlowChartData) => {
 	return chartData.reverse();
 };
 
+/*
+  * Function that extracts area details for display in AreaOverviewDetails component
+  * @params data - an object that contains the data returned from the zoopla api
+*/
 export const extractAreaDetails = (data: FlowAreaDetails) => {
 	const { area_name, country, county, postcode, street, town, zed_index } = data;
 	const areaDetails = {
@@ -57,4 +72,25 @@ export const extractAreaDetails = (data: FlowAreaDetails) => {
 		zed_index
 	};
 	return areaDetails;
+};
+
+/*
+  * Function that gets bounding box details for use by googleMaps api
+  * @params data - an object that contains the data returned from the zoopla api
+*/
+export const getBoundingBox = (data: FlowBoundingBox) => {
+	if (!data) {
+		return null;
+	}
+	const bound = {
+		sw: {
+			lat: parseFloat(data.latitude_min),
+			lng: parseFloat(data.longitude_min)
+		},
+		ne: {
+			lat: parseFloat(data.latitude_max),
+			lng: parseFloat(data.longitude_max)
+		}
+	};
+	return bound;
 };

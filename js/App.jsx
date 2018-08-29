@@ -10,6 +10,9 @@ import './App.css';
 
 const FourOhFour = () => <h1>404</h1>;
 
+/*
+ * All application routing is handled here
+*/
 const App = () => (
 	<BrowserRouter>
 		<Provider store={store}>

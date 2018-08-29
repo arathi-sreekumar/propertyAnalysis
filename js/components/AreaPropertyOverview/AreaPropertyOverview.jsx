@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { fetchPropertyOverview } from './helpers/apiHelper';
-import { extractZedIndexChartData, extractAreaDetails } from './helpers/dataHelper';
+import { extractZedIndexChartData, extractAreaDetails, getBoundingBox } from './helpers/dataHelper';
 import AreaOverviewDetails from './AreaOverviewDetails';
 import AreaPriceChart from './AreaPriceChart';
 import GoogleMapWithMarker from '../common/GoogleMaps/MapWithAMarker';
@@ -34,6 +34,10 @@ type FlowState = {
 	searchTerm: ?string
 };
 
+/*
+ * AreaPropertyOverview component: This creates a combined view that shows the property details,
+ * average price chart and selected location on a map, after fetching the data from zoopla api.
+*/
 class AreaPropertyOverview extends Component {
 	state: FlowState;
 
@@ -48,6 +52,7 @@ class AreaPropertyOverview extends Component {
 		this.fetchData();
 	}
 
+	// This is to update the results if search string changes during a rerendering
 	componentDidUpdate(prevProps: { searchTerm: ?string }) {
 		if (this.props.searchTerm !== prevProps.searchTerm) {
 			this.setSearchState(this.props.searchTerm);
@@ -72,6 +77,7 @@ class AreaPropertyOverview extends Component {
 		searchTerm: ?string
 	};
 
+	// fetchData method: Makes an api request if there is a searchTerm and handles the response
 	async fetchData() {
 		if (!this.props.searchTerm) {
 			return;
@@ -108,12 +114,13 @@ class AreaPropertyOverview extends Component {
 			const chartData = extractZedIndexChartData(result);
 			const mapCenter = { lat: result.latitude, lng: result.longitude };
 			const mapZoom = 11;
+			const mapBounds = getBoundingBox(result.bounding_box);
 
 			return (
 				<div className="search-result">
 					<AreaOverviewDetails area={areaDetails} />
 					<AreaPriceChart data={chartData} />
-					<GoogleMapWithMarker center={mapCenter} zoom={mapZoom} />
+					<GoogleMapWithMarker center={mapCenter} zoom={mapZoom} bounds={mapBounds} />
 				</div>
 			);
 		}

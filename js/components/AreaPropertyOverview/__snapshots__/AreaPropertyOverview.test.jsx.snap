@@ -77,6 +77,11 @@ exports[`AreaPropertyOverview search updates data correctly updates correctly 1`
       data={Array []}
     >
       <div>
+        <h2
+          className="subtitle"
+        >
+          Average property price over last 5 years
+        </h2>
         <LineChart
           axes={true}
           axisLabels={
@@ -327,6 +332,7 @@ exports[`AreaPropertyOverview search updates data correctly updates correctly 1`
       </div>
     </AreaPriceChart>
     <GoogleMapWithMarker
+      bounds={null}
       center={
         Object {
           "lat": undefined,
@@ -336,6 +342,7 @@ exports[`AreaPropertyOverview search updates data correctly updates correctly 1`
       zoom={11}
     >
       <withScriptjs(withGoogleMap(Component))
+        bounds={null}
         center={
           Object {
             "lat": undefined,

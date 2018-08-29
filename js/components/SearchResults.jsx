@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import Search from './Search/Search';
 import AreaPropertyOverview from './AreaPropertyOverview/AreaPropertyOverview';
 
+/*
+ * SearchResults component: shows search and area property details components
+ * Connects to redux store to use searchTerm property from store
+*/
 const SearchResults = (props: { search: string }) => {
 	const search = props.search || '';
 	return (

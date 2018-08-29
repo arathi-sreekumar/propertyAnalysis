@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Search from './Search/Search';
 
+// Landing component: displays a search component
 const Landing = (props: {}) => (
 	<div>
 		<h1 className="title">Property Information</h1>

@@ -2,15 +2,10 @@
 
 import { getPropertyDetailsByAreaUrl } from './requestUrls';
 
-// function checkStatus(response) {
-// 	if (response.status >= 200 && response.status < 300) {
-// 		return response;
-// 	}
-// 	const error = new Error(response.statusText);
-// 	error.response = response;
-// 	throw error;
-// }
-
+/*
+  * Function that gets Property details from Zoopla Api
+  * @params props - an object that should contain 'searchTerm' which will be a PostCode
+*/
 export function fetchPropertyOverview(props: ?string) {
 	const searchTerm = props;
 	let url;
@@ -30,12 +25,10 @@ export function fetchPropertyOverview(props: ?string) {
 		method: 'GET'
 	}).then(response => {
 		if (!response.ok) {
-			throw Error(response.statusText);
+			throw new Error(response.statusText);
 		}
 		return response.json();
 	});
-
-	// .then(res => res.json());
 }
 
 export default fetchPropertyOverview;

@@ -9,6 +9,7 @@ const renderApp = () => {
 };
 renderApp();
 
+// Uses hot module rendering to re-render only changed branches
 if (module.hot) {
 	module.hot.accept('./App', () => {
 		renderApp();

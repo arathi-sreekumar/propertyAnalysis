@@ -2,6 +2,18 @@
 
 exports[`GoogleMapWithMarker renders correctly 1`] = `
 <withScriptjs(withGoogleMap(Component))
+  bounds={
+    Object {
+      "ne": Object {
+        "lat": 50.81096,
+        "lng": 0.027867,
+      },
+      "sw": Object {
+        "lat": 50.785809,
+        "lng": -0.025241,
+      },
+    }
+  }
   center={
     Object {
       "lat": 50.7983845,

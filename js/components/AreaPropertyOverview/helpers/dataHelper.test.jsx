@@ -1,4 +1,4 @@
-import { extractZedIndexChartData, extractAreaDetails } from './dataHelper';
+import { extractZedIndexChartData, extractAreaDetails, getBoundingBox } from './dataHelper';
 
 const DATA = {
 	area_url: 'https://www.zoopla.co.uk/home-values/bn10',
@@ -57,6 +57,17 @@ const DEFAULT_AREA_OUTPUT = {
 	zed_index: undefined
 };
 
+const BOUNDS_OUTPUT = {
+	sw: {
+		lat: 50.785809,
+		lng: -0.025241
+	},
+	ne: {
+		lat: 50.81096,
+		lng: 0.027867
+	}
+};
+
 describe('dataHelper', () => {
 	describe('extractZedIndexChartData method', () => {
 		it('returns expected output for a given complete input', () => {
@@ -79,6 +90,17 @@ describe('dataHelper', () => {
 		it('returns default value undefined for all params if passed an empty object', () => {
 			const result = extractAreaDetails({});
 			expect(result).toEqual(DEFAULT_AREA_OUTPUT);
+		});
+	});
+
+	describe('getBoundingBox method', () => {
+		it('returns expected output for a given complete input', () => {
+			const result = getBoundingBox(DATA.bounding_box);
+			expect(result).toEqual(BOUNDS_OUTPUT);
+		});
+		it('returns null for a given empty input', () => {
+			const result = getBoundingBox();
+			expect(result).toBeNull();
 		});
 	});
 });

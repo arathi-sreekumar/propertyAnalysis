@@ -9,7 +9,12 @@ declare type ActionT<A: ActionType, P> = {|
 	payload: P
 |};
 
-const searchReducer = (state: string = '', action: ActionT) => {
+type Action = ActionT<'SET_SEARCH_TERM', string>;
+
+/*
+	searchReducer: Redux reducer function to store search term
+*/
+const searchReducer = (state: string = '', action: Action) => {
 	switch (action.type) {
 		case SET_SEARCH_TERM:
 			return action.payload;

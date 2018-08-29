@@ -6,6 +6,12 @@ import type { RouterHistory } from 'react-router-dom';
 import { setSearchTerm } from './duck/actions';
 import './Search.css';
 
+/*
+ * Search component: 
+  * - Renders a search component
+  * - redirects to search results when submitting a search
+  * - Stores search term in redux store
+*/
 class Search extends React.Component {
 	props: {
 		searchTerm: string,

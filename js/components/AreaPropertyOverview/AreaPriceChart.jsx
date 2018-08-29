@@ -9,6 +9,10 @@ type FlowChartData = {
   data: ?({ x: string, y: number }[])
 };
 
+/*
+ * AreaPriceChart component: 
+ * Shows average pricing information over the last five years for selected area
+*/
 class AreaPriceChart extends React.Component {
   constructor(props: FlowChartData) {
     super(props);
@@ -22,12 +26,11 @@ class AreaPriceChart extends React.Component {
   render() {
     const width = 700;
     const height = 300;
-    // const margins = { left: 100, right: 100, top: 50, bottom: 50 };
     const chartData = [this.state.data];
 
-    // const title = 'Property price in the area over last 5 years';
     return (
       <div>
+        <h2 className="subtitle">Average property price over last 5 years</h2>
         <LineChart
           xType={'text'}
           axisLabels={{ x: 'Last 5 years', y: 'Average property price' }}
