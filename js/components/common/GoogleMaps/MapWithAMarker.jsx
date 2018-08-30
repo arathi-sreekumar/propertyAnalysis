@@ -22,7 +22,7 @@ const MapWithAMarker = withScriptjs(
 			bounds = new window.google.maps.LatLngBounds(sw, ne);
 		}
 		return (
-			<GoogleMap defaultZoom={zoom} defaultCenter={center}>
+			<GoogleMap zoom={zoom} center={center}>
 				<Marker position={center} />
 				{props.bounds && <Rectangle editable={false} bounds={bounds} />}
 			</GoogleMap>
