@@ -10,7 +10,7 @@ type FlowChartData = {
 };
 
 /*
- * AreaPriceChart component: 
+ * AreaPriceChart component:
  * Shows average pricing information over the last five years for selected area
 */
 class AreaPriceChart extends React.Component {
@@ -22,6 +22,13 @@ class AreaPriceChart extends React.Component {
   }
 
   state: FlowChartData;
+
+  // This is to update the results if search string changes during a rerendering
+  componentDidUpdate() {
+    this.state = {
+      data: this.props.data
+    };
+  }
 
   render() {
     const width = 700;
