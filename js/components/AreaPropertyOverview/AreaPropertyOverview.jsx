@@ -69,7 +69,12 @@ class AreaPropertyOverview extends Component {
 
 	setSearchState(searchTerm: ?string) {
 		if (searchTerm) {
-			this.setState({ searchTerm });
+			this.setState({
+        error: null,
+        isLoaded: false,
+        result: null,
+        searchTerm
+      });
 		}
 	}
 
