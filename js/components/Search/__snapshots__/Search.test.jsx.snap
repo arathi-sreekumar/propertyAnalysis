@@ -7,8 +7,15 @@ exports[`Search renders correctly for a given search word "bn10" 1`] = `
   <div
     class="control is-expanded"
   >
+    <label
+      class="screen-reader-only"
+      for="search"
+    >
+      Search for a full or part postCode
+    </label>
     <input
       class="input is-primary"
+      id="search"
       placeholder="Search"
       type="text"
       value="bn10"
@@ -34,8 +41,15 @@ exports[`Search renders correctly when search word is empty 1`] = `
   <div
     class="control is-expanded"
   >
+    <label
+      class="screen-reader-only"
+      for="search"
+    >
+      Search for a full or part postCode
+    </label>
     <input
       class="input is-primary"
+      id="search"
       placeholder="Search"
       type="text"
       value=""

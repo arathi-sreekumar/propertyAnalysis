@@ -2,19 +2,21 @@
 
 exports[`SearchResults renders correctly for empty search 1`] = `
 <div>
-  <h1
-    class="title"
-  >
-    Property Information
-  </h1>
   <form
     class="search field has-addons"
   >
     <div
       class="control is-expanded"
     >
+      <label
+        class="screen-reader-only"
+        for="search"
+      >
+        Search for a full or part postCode
+      </label>
       <input
         class="input is-primary"
+        id="search"
         placeholder="Search"
         type="text"
         value=""
@@ -31,32 +33,38 @@ exports[`SearchResults renders correctly for empty search 1`] = `
       </button>
     </div>
   </form>
-  <h2
-    class="subtitle"
+  <div
+    class="search-results"
   >
-    Search Results
-  </h2>
-  <div>
-    You need to search for a postcode!
+    <h2
+      class="subtitle"
+    >
+      Search Results
+    </h2>
+    <div>
+      You need to search for a postcode!
+    </div>
   </div>
 </div>
 `;
 
 exports[`SearchResults renders correctly for given search = bn10 1`] = `
 <div>
-  <h1
-    class="title"
-  >
-    Property Information
-  </h1>
   <form
     class="search field has-addons"
   >
     <div
       class="control is-expanded"
     >
+      <label
+        class="screen-reader-only"
+        for="search"
+      >
+        Search for a full or part postCode
+      </label>
       <input
         class="input is-primary"
+        id="search"
         placeholder="Search"
         type="text"
         value=""
@@ -73,13 +81,17 @@ exports[`SearchResults renders correctly for given search = bn10 1`] = `
       </button>
     </div>
   </form>
-  <h2
-    class="subtitle"
+  <div
+    class="search-results"
   >
-    Search Results
-  </h2>
-  <div>
-    Loading...
+    <h2
+      class="subtitle"
+    >
+      Search Results
+    </h2>
+    <div>
+      Loading...
+    </div>
   </div>
 </div>
 `;

@@ -1,20 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Landing renders correctly 1`] = `
-<div>
-  <h1
-    class="title"
-  >
-    Property Information
-  </h1>
+<div
+  class="landing"
+>
   <form
     class="search field has-addons"
   >
     <div
       class="control is-expanded"
     >
+      <label
+        class="screen-reader-only"
+        for="search"
+      >
+        Search for a full or part postCode
+      </label>
       <input
         class="input is-primary"
+        id="search"
         placeholder="Search"
         type="text"
         value=""

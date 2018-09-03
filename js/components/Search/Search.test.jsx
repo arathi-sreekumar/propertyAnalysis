@@ -7,7 +7,7 @@ import store from '../store';
 import { setSearchTerm } from './duck/actions';
 import Search from './Search';
 
-jest.mock('../SearchResults');
+jest.mock('../SearchResults/SearchResults');
 
 describe('Search', () => {
 	it('renders correctly when search word is empty', () => {
