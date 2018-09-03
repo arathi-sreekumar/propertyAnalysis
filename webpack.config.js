@@ -17,10 +17,6 @@ const config = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    alias: {
-      react: 'preact-compat',
-      'react-dom': 'preact-compat'
-    }
   },
   stats: {
     colors: true,
