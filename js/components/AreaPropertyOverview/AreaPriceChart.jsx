@@ -25,9 +25,11 @@ class AreaPriceChart extends React.Component {
 
   // This is to update the results if search string changes during a rerendering
   componentDidUpdate() {
-    this.state = {
-      data: this.props.data
-    };
+    this.setDataState(this.props.data);
+  }
+
+  setDataState(data: ?({ x: string, y: number }[])) {
+    this.setState({ data });
   }
 
   render() {
