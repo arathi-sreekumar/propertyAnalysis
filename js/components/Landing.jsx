@@ -6,10 +6,9 @@ import Search from './Search/Search';
 
 // Landing component: displays a search component
 const Landing = (props: {}) => (
-	<div>
-		<h1 className="title">Property Information</h1>
-		<Search {...props} />
-	</div>
+    <div className="landing">
+		  <Search {...props} />
+    </div>
 );
 
 const mapStateToProps = state => ({

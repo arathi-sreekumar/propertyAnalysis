@@ -9,21 +9,26 @@
     <link rel="stylesheet" href="/public/style.css" />
 </head>
 <body>
-	<section class="section container">
-	    <div id="app" class="app"><%= body %></div>
-	    <script src="/public/bundle.js"></script>
-	</section>
-	<footer class="footer">
-	  <div class="content has-text-centered">
-	    <p>
-	      <strong>A Property Analysis App</strong> by <a href="https://github.com/arathi-sreekumar">Arathi Mini Sreekumar</a>. The source code is licensed
-	      <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-	      is provided by Zoopla.
-	    </p>
-	  </div>
-	  <div class="has-text-right">
-	  	<img src="https://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla-150x73.png" width="150" height="73" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0">
-	  </div>
-	</footer>
+    <section class="hero is-fullheight">
+        <div class="hero-head has-background-light">
+            <div class="container">
+                <h1 class="title is-2 has-text-grey-darker">Property Information</h1>
+            </div>
+        </div>
+        <div class="container is-fullheight">
+            <div id="app" class="app"><%= body %></div>
+            <script src="/public/bundle.js"></script>
+        </div>
+        <footer class="hero-foot footer">
+            <div class="container">
+                <p>
+                    <strong>A Property Analysis App</strong> by <a href="https://github.com/arathi-sreekumar">Arathi Mini Sreekumar</a>. The source code is licensed
+                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content is provided by Zoopla.
+
+                    <img src="https://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla-150x73.png" width="150" height="73" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0"/>
+                </p>
+            </div>
+        </footer>
+    </section>
 </body>
 </html>

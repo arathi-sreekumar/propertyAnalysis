@@ -7,7 +7,7 @@ import { setSearchTerm } from './duck/actions';
 import './Search.css';
 
 /*
- * Search component: 
+ * Search component:
   * - Renders a search component
   * - redirects to search results when submitting a search
   * - Stores search term in redux store
@@ -28,7 +28,9 @@ class Search extends React.Component {
 		return (
 			<form className="search field has-addons" onSubmit={this.goToSearchResults}>
 				<div className="control is-expanded">
+          <label className="screen-reader-only" htmlFor="search">Search for a full or part postCode</label>
 					<input
+            id="search"
 						type="text"
 						className="input is-primary"
 						placeholder="Search"
