@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
-import store from './store';
+import store from '../store';
 import SearchResults from './SearchResults';
 
 describe('SearchResults', () => {

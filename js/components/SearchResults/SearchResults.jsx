@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import Search from './Search/Search';
-import AreaPropertyOverview from './AreaPropertyOverview/AreaPropertyOverview';
+import Search from '../Search/Search';
+import AreaPropertyOverview from '../AreaPropertyOverview/AreaPropertyOverview';
 import './SearchResults.css';
 
 /*
@@ -15,10 +15,10 @@ const SearchResults = (props: { search: string }) => {
 	return (
 		<div>
 			<Search {...props} />
-      <div className="search-results">
-        <h2 className="subtitle">Search Results</h2>
-        <AreaPropertyOverview searchTerm={search} />
-      </div>
+			<div className="search-results">
+				<h2 className="subtitle">Search Results</h2>
+				<AreaPropertyOverview searchTerm={search} />
+			</div>
 		</div>
 	);
 };

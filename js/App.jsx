@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import type { Match } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './components/store';
-import Landing from './components/Landing';
-import SearchResults from './components/SearchResults';
+import Landing from './components/Landing/Landing';
+import SearchResults from './components/SearchResults/SearchResults';
 import './App.css';
 
 const FourOhFour = () => <h1>404</h1>;
